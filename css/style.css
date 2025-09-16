@@ -1,0 +1,120 @@
+/* 1 */
+.header {
+    background-color: #4682B4;
+    color: white;
+    height: 100px;
+    width: auto;
+    /*align-items: center;*/
+    display: flex;
+    justify-content: space-between;
+}
+h1 {
+    margin: 0;
+}
+.header-text {
+    /*background-color: red;*/
+    height: 80px;
+    width: 400px;
+    text-align: center;
+    margin: 10px;
+}
+#header-img {
+    /*background-color: green;*/
+    width: 80px;
+    /*align depende do display*/
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+.header img {
+    /*background-color: blueviolet;*/
+    max-width: 100%;
+}
+/* -----1----- */
+
+/* 2-1 */
+.content {
+    text-align: center;
+    /*padding: 20px;
+    background-position: center;*/
+}
+.patient-photoInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.patient-photoInfo img {
+    width: 130px;
+    height: auto;
+    border-radius: 50%;
+}
+/*
+.patiente-detals {
+    text-align: left;
+    margin-left: 20px;
+}
+.patiente-detals h2 {
+    margin: 0;
+}
+ */
+/* -----2----- */
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.icon {
+    background-color: #4682B4;
+    color: white;
+    padding: 10px; /* Tamanho da Caixa */
+    border-radius: 10px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+.icon img {
+    width:50px;
+}
+a {
+    text-decoration: none;
+}
+a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+.color-off{
+    color: #918d87;
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .header-text {
+        margin-left: 0;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .patient-photoInfo {
+        flex-direction: column;
+        align-items: center;
+    }
+    .patient-photoInfo img {
+        margin-bottom: 10px;
+    }
+    .patient-detals {
+        text-align: center;
+    }
+    .icons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .icon {
+        margin-bottom: 10px;
+    }
+}
+
+/* 3 */
+/* -----3----- */
