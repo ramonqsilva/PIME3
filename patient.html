@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paciente</title>
+
+    <link rel="stylesheet" href="css/patient.css">
+    <!--<link rel="stylesheet" href="css/reset.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/date.css"/>-->
+</head>
+<body>
+    <!-- (1)  -->
+    <!-- Barra Superior -->
+    <div class="header">
+        <div class="return">
+            <a href="index.html"><img src="img/arrow_icon.png" alt="Voltar para Página Inicial"></a>
+        </div>
+        <div id="text">
+                <h1>Pacientes</h1>
+        </div>
+        <div class="add">
+            <a href="patient-registration.html"><img src="img/add_icon.png" alt="Adicionar paciente"></a>
+        </div>
+    </div>
+    <!-- (2)  -->
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar pacientes...">
+        <button>🔍</button>
+    </div>
+    <div class="patient-list">
+        <!-- Lista de pacientes carregada dinamicamente -->
+    </div>
+    <div class="button">
+        <a href="index.html">
+            <img src="img/confirm_bt.png" alt="Confirmar Paciente Selecionado"></a>
+        <a href="#" id="clearPatientsButton">
+            <img src="img/trash_bt.png" alt="Excluir Cadastro"></a>
+    </div>
+        <script src="js/patient.js"></script>
+</body>
+</html>

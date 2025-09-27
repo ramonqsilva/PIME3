@@ -40,21 +40,21 @@ h1 {
 }
 .patient-photoInfo {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: center;
     margin-bottom: 30px;
 }
 .patient-photoInfo img {
     width: 130px;
-    height: auto;
+    height: 130px;
     border-radius: 50%;
 }
-/*
-.patiente-detals {
+
+.patient-detals {
     text-align: left;
     margin-left: 20px;
-}
-.patiente-detals h2 {
+}/*
+.patient-detals h2 {
     margin: 0;
 }
  */
