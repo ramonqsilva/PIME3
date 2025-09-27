@@ -10,17 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!patientId) {
         // Não há paciente selecionado, limpa as informações
-        patientPhoto.src = 'img/user.png';
+        patientPhoto.src = 'img/user_icon.png'
         patientName.textContent = 'Selecione um Paciente';
         patientAge.textContent = '';
-        patientDOB.textContent = 'dd/mm/aaaa';
+        patientDOB.textContent = '';
     } else {
         try {
             const patients = JSON.parse(localStorage.getItem('patients')) || [];
             const patient = patients.find(p => String(p.id) === String(patientId));
 
             if (patient) {
-                patientPhoto.src = patient.photo || 'img/user.png';
+                patientPhoto.src = patient.photo || 'img/user_icon.png';
                 patientName.textContent = patient.name || 'Nome não disponível';
 
                 const birthDate = new Date(patient.dob);
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('selectedPatientId', patientId);
             } else {
                 // Paciente não encontrado
-                patientPhoto.src = 'img/account-group-outline.PNG';
+                patientPhoto.src = 'img/user_icon.png';
                 patientName.textContent = 'Paciente não encontrado';
                 patientAge.textContent = '-';
                 patientDOB.textContent = '-';
