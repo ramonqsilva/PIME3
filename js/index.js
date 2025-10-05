@@ -4,66 +4,52 @@ document.addEventListener('DOMContentLoaded', function() {
     const patientAge = document.getElementById('patientAge');
     const patientDOB = document.getElementById('patientDOB');
 
-    // Obtém o ID do paciente da URL ou do localStorage
     const urlParams = new URLSearchParams(window.location.search);
     let patientId = urlParams.get('id') || localStorage.getItem('selectedPatientId');
+    const defaultUserIcon = 'img/user_icon.png';
 
-    if (!patientId) {
-        // Não há paciente selecionado, limpa as informações
-        patientPhoto.src = 'img/user_icon.png'
-        patientName.textContent = 'Selecione um Paciente';
-        patientAge.textContent = '';
-        patientDOB.textContent = '';
-    } else {
+    function loadSelectedPatient() {
+        if (!patientId) {
+            patientPhoto.src = defaultUserIcon;
+            patientName.textContent = 'Nome: Nenhum Paciente Selecionado';
+            patientAge.textContent = 'Idade: -';
+            patientDOB.textContent = 'Data de Nascimento: -';
+            return;
+        }
+
         try {
             const patients = JSON.parse(localStorage.getItem('patients')) || [];
             const patient = patients.find(p => String(p.id) === String(patientId));
 
             if (patient) {
-                patientPhoto.src = patient.photo || 'img/user_icon.png';
-                patientName.textContent = patient.name || 'Nome não disponível';
-
+                patientPhoto.src = patient.photo || defaultUserIcon;
+                patientName.textContent = `Nome: ${patient.name}`;
                 const birthDate = new Date(patient.dob);
                 const today = new Date();
                 let age = today.getFullYear() - birthDate.getFullYear();
                 const monthDiff = today.getMonth() - birthDate.getMonth();
 
-                // Ajusta a idade caso o aniversário ainda não tenha ocorrido este ano
                 if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
                     age--;
                 }
 
-                patientAge.textContent = `${age} ano(s)`;
-                patientDOB.textContent = `Nascimento: ${birthDate.toLocaleDateString('pt-BR')}`;
-
-                // Armazena o ID do paciente no localStorage
+                patientAge.textContent = `Idade: ${age} ano(s)`;
+                patientDOB.textContent = `Data de Nascimento: ${birthDate.toLocaleDateString('pt-BR')}`;
                 localStorage.setItem('selectedPatientId', patientId);
             } else {
-                // Paciente não encontrado
-                patientPhoto.src = 'img/user_icon.png';
-                patientName.textContent = 'Paciente não encontrado';
-                patientAge.textContent = '-';
-                patientDOB.textContent = '-';
+                patientPhoto.src = defaultUserIcon;
+                patientName.textContent = 'Nome: Paciente não encontrado';
+                patientAge.textContent = 'Idade: -';
+                patientDOB.textContent = 'Data de Nascimento: -';
+                localStorage.removeItem('selectedPatientId');
             }
         } catch (error) {
             console.error('Erro ao carregar os dados do paciente:', error);
-            patientName.textContent = 'Erro ao carregar paciente';
-            patientAge.textContent = '-';
-            patientDOB.textContent = '-';
+            patientName.textContent = 'Nome: Erro ao carregar paciente';
+            patientAge.textContent = 'Idade: -';
+            patientDOB.textContent = 'Data de Nascimento: -';
         }
     }
 
-    // Evento de clique no ícone para redirecionar para dados.html
-    const dataIcon = document.getElementById('data-icon');
-    if (dataIcon) {
-        dataIcon.addEventListener('click', function(event) {
-            event.preventDefault();
-            const selectedId = localStorage.getItem('selectedPatientId');
-            if (selectedId) {
-                window.location.href = `data.html?id=${selectedId}`;
-            } else {
-                alert('Selecione um paciente primeiro!');
-            }
-        });
-    }
+    loadSelectedPatient();
 });
