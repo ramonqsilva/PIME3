@@ -1,163 +1,168 @@
-/* 1 */
+/* Definições e Estética Base */
+body {
+    background-color: #e4e0da; /* Fundo Bege Claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* 1. Header (Barra Superior) - Consistente com outras páginas */
 .header {
-    background-color: #4682B4;
+    background-color: #4682B4; /* Azul Aço */
     color: white;
-    height: 100px;
-    width: auto;
-    /*align-items: center;*/
+    height: 70px; /* Altura moderna */
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     margin: 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+p {
+    margin: 5px 0; /* Ajusta a margem do parágrafo de boas-vindas */
 }
 
 .header-text {
-    /*background-color: red;*/
-    height: 80px;
-    width: 400px;
-    text-align: center;
-    margin: 10px;
+    font-size: 1rem;
+    align-content: center;
+    text-align: left; /* Alinha o texto à esquerda (mais natural) */
 }
 
 #header-img {
-    /*background-color: green;*/
-    width: 80px;
-    /*align depende do display*/
-    margin-right: 10px;
+    width: 50px;
+    margin: 0 10px;
     display: flex;
     align-items: center;
 }
 
 .header img {
-    /*background-color: blueviolet;*/
     max-width: 100%;
 }
-/* -----1----- */
 
-/* 2-1 */
+.add {
+    width: 40px;
+    height: 40px;
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add img {
+    width: 100%;
+}
+
+/* 2. Área de Conteúdo Principal (Exibição do Paciente) */
+.content {
+    padding: 20px 0;
+    text-align: center;
+}
+
 .content-link {
-    transition: opacity 0.3s ease;
-    display: block; /* Transforma o link em um elemento de bloco */
-    text-decoration: none; /* Remove o sublinhado */
-    background-image: url('img/background_image.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+    /* Estilos do Bloco */
+    width: 90%;
+    max-width: 500px;
     margin: 20px auto;
-    padding: 0px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+
+    transition: transform 0.3s ease;
 }
 
 .content-link:hover {
-    opacity: 0.9;
+    transform: translateY(-5px); /* Efeito suave de levantar */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .content-link:focus {
     outline: none;
 }
 
-.content-link:visited {
-    color: inherit;
-}
-
-.content {
-    text-align: center;
-}
-
-a:hover{
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-}
-
 .patient-photoInfo {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    gap: 40px; /* Espaço entre a foto e os detalhes */
+    color: #333; /* Cor do texto dos detalhes */
 }
 
 .patient-photoInfo img {
-    width: 130px;
-    height: 130px;
+    width: 120px; /* Tamanho da foto de destaque */
+    height: 120px;
     border-radius: 50%;
     border: 3px solid #4682B4;
+    object-fit: cover;
 }
 
 .patient-detals {
     text-align: left;
-    margin-left: 20px;
+    font-size: 1.1rem;
 }
-/*
-.patient-detals h2 {
-    margin: 0;
+
+.patient-detals p {
+    margin: 8px 0;
+    font-weight: 500;
 }
- */
-/* -----2----- */
+
+/* 3. Ícones de Navegação */
 .icons {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
+    padding: 20px 0;
 }
 
 .icon {
     background-color: #4682B4;
     color: white;
-    padding: 10px; /* Tamanho da Caixa */
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 8px;
     text-align: center;
     width: 100px;
     height: 100px;
     cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s;
+}
+#modelo-icon\ off img{
+    opacity: 20%;
+}
+
+.icon:hover {
+    background-color: #3a6b99; /* Azul mais escuro no hover */
 }
 
 .icon img {
-    width:50px;
+    width: 40px; /* Ícones menores para melhor proporção */
+    margin-bottom: 5px;
+}
+
+.icon p {
+    margin: 0;
+    font-size: 0.9rem;
 }
 
 a {
     text-decoration: none;
 }
 
-a:visited, a:hover, a:active {
+a:visited {
+    color: inherit;
     text-decoration: none;
 }
 
 .color-off{
-    color: #918d87;
-}
-/*
-@media (max-width: 600px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-    }
-    .header-text {
-        margin-left: 0;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .patient-photoInfo {
-        flex-direction: column;
-        align-items: center;
-    }
-    .patient-photoInfo img {
-        margin-bottom: 10px;
-    }
-    .patient-detals {
-        text-align: center;
-    }
-    .icons {
-        flex-direction: column;
-        align-items: center;
-    }
-    .icon {
-        margin-bottom: 10px;
-    }
-}
-*/
-/* 3 */
-/* -----3----- */
-a ul li{
-    text-decoration: none;
+    color: #918d87; /* Cor de inativo */
 }

@@ -4,12 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const patientAge = document.getElementById('patientAge');
     const patientDOB = document.getElementById('patientDOB');
 
-    const urlParams = new URLSearchParams(window.location.search);
-    let patientId = urlParams.get('id') || localStorage.getItem('selectedPatientId');
+    const selectedPatientId = localStorage.getItem('selectedPatientId');
     const defaultUserIcon = 'img/user_icon.png';
 
     function loadSelectedPatient() {
-        if (!patientId) {
+        if (!selectedPatientId) {
             patientPhoto.src = defaultUserIcon;
             patientName.textContent = 'Nome: Nenhum Paciente Selecionado';
             patientAge.textContent = 'Idade: -';
@@ -19,11 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const patients = JSON.parse(localStorage.getItem('patients')) || [];
-            const patient = patients.find(p => String(p.id) === String(patientId));
+            const patient = patients.find(p => String(p.id) === String(selectedPatientId));
 
             if (patient) {
                 patientPhoto.src = patient.photo || defaultUserIcon;
                 patientName.textContent = `Nome: ${patient.name}`;
+
                 const birthDate = new Date(patient.dob);
                 const today = new Date();
                 let age = today.getFullYear() - birthDate.getFullYear();
@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 patientAge.textContent = `Idade: ${age} ano(s)`;
                 patientDOB.textContent = `Data de Nascimento: ${birthDate.toLocaleDateString('pt-BR')}`;
-                localStorage.setItem('selectedPatientId', patientId);
             } else {
                 patientPhoto.src = defaultUserIcon;
                 patientName.textContent = 'Nome: Paciente não encontrado';

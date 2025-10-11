@@ -3,84 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
-
   <link rel="stylesheet" href="css/style.css">
-  <!--<link rel="stylesheet" href="css/reset.css">-->
 </head>
 <body>
-        <!-- (1)  -->
-    <!-- Barra Superior -->
-    <div class="header">
-      <div class="header-text">
-        <!--Implementar JS com nome do Usuário-->
-        <h1>Olá, Administrador!</h1>
-        <p>Seja bem-vindo(a)!</p>
-      </div>
-      <div id="header-img">
-        <img src="img/logo.png" alt="Logo da Instituição">
-      </div>
+  <div class="header">
+    <div id="header-img">
+      <img src="img/logo.png" alt="Logo da Instituição">
     </div>
-       <!-- (2) -->
-      <!-- Corpo -->
+    <div class="header-text">
+      <h1>Olá, Administrador!</h1>
+      <p>Seja bem-vindo(a)!</p>
+    </div>
+    <div class="add">
+      <a href="#">
+        <img src="img/menu_icon.png" alt="Menu Dinâmico"></a>
+    </div>
 
-        <div class="content">
-          <a href="data.html" id="paciente_data" class="content-link">
-            <!-- (2-1) - Background img -->
-            <!--<img src="img/background_image.png" width="250px">-->
-            <div class="patient-photoInfo">
-              <img src="img/user_icon.png" alt="Foto do Paciente" id="patientPhoto">
-              <div class="patient-detals">
-                <p id="patientName">Nome:</p>
-                <p id="patientAge">Idade:</p>
-                <p id="patientDOB">Data de Nascimento:</p>
-              </div>
-            </div>
-          </a>
+  </div>
+
+  <div class="content">
+    <a href="#" id="paciente_data" class="content-link">
+      <div class="patient-photoInfo">
+        <img src="img/user_icon.png" alt="Foto do Paciente" id="patientPhoto">
+        <div class="patient-detals">
+          <p id="patientName">Nome:</p>
+          <p id="patientAge">Idade:</p>
+          <p id="patientDOB">Data de Nascimento:</p>
         </div>
-
-
-      <!-- (2-2) -->
-      <div class="icons">
-        <!-- Icone 0 -->
-        <a href="patient-registration.html">
-          <div class="icon">
-            <img src="img/add-pacient_icon2.png">
-            <p>Cadastrar</p>
-          </div>
-        </a>
-        <!-- Icone 1 -->
-        <a href="patient.html">
-          <div class="icon">
-            <img src="img/patients_icon2.png">
-            <p>Pacientes</p>
-          </div>
-        </a>
-        <!-- Icone 2 -->
-        <a href="medical-record.html">
-          <div class="icon">
-            <img src="img/medicalRecord_icon2.png">
-            <p>Prontuário</p>
-          </div>
-        </a>
-        <!-- Icone 3 -->
-        <!--
-        <a href="data.html" id="data-icon">
-          <div class="icon">
-            <img src="img/data_icon2.png" width="10">
-            <p>Dados do Paciente</p>
-          </div>
-        </a>
-        -->
-        <!-- Icone 4 -->
-        <a>
-          <div class="icon" id="modelo-icon">
-            <img src="" width="10">
-            <p class="color-off">Implementar</p>
-          </div>
-        </a>
       </div>
-    <!--content-->
-    </div>
-<script src="js/index.js"></script>
+    </a>
+  </div>
+
+  <div class="icons">
+    <a href="patient-registration.html">
+      <div class="icon">
+        <img src="img/add-pacient_icon2.png" alt="Icone de menu">
+        <p>Cadastrar</p>
+      </div>
+    </a>
+    <a href="patient.html">
+      <div class="icon">
+        <img src="img/patients_icon2.png" alt="Icone de menu">
+        <p>Pacientes</p>
+      </div>
+    </a>
+    <a href="medical-record.html">
+      <div class="icon">
+        <img src="img/medicalRecord_icon2.png" alt="Icone de menu">
+        <p>Prontuário</p>
+      </div>
+    </a>
+    <a href="#">
+      <div class="icon" id="modelo-icon off" >
+        <img src="img/implement_icon.png" width="10" alt="Icone de menu">
+        <p class="color-off">Implementar</p>
+      </div>
+    </a>
+  </div>
+  <script src="js/index.js"></script>
 </body>
 </html>

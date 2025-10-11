@@ -5,38 +5,36 @@
     <title>Paciente</title>
 
     <link rel="stylesheet" href="css/patient.css">
-    <!--<link rel="stylesheet" href="css/reset.css">-->
 </head>
 <body>
-    <!-- (1)  -->
-    <!-- Barra Superior -->
-    <div class="header">
-        <div class="return">
-            <a href="index.html">
-                <img src="img/arrow_icon2.png" alt="Voltar para Página Inicial"></a>
-        </div>
-        <div id="text">
-                <h1>Pacientes</h1>
-        </div>
-        <div class="add">
-            <a href="patient-registration.html">
-                <img src="img/add_icon2.png" alt="Adicionar paciente"></a>
-        </div>
+<div class="header">
+    <div class="return">
+        <a href="index.html">
+            <img src="img/home_icon.png" alt="Voltar para Página Inicial"></a>
     </div>
-    <!-- (2)  -->
+    <div id="text">
+        <h1>Pacientes</h1>
+    </div>
+    <div class="add">
+        <a href="patient-registration.html">
+            <img src="img/add_icon2.png" alt="Adicionar paciente"></a>
+    </div>
+</div>
+
+<div class="search-bar-container">
     <div class="search-bar">
         <input type="text" placeholder="Buscar pacientes...">
         <button>🔍</button>
     </div>
-    <div class="patient-list">
-        <!-- Lista de pacientes carregada dinamicamente -->
-    </div>
-    <div class="button">
-        <a href="index.html">
-            <img src="img/confirm_bt.png" alt="Confirmar Paciente Selecionado"></a>
-        <a href="#" id="clearPatientsButton">
-            <img src="img/trash_bt.png" alt="Excluir Cadastro"></a>
-    </div>
-        <script src="js/patient.js"></script>
+</div>
+
+<div class="patient-list" id="patient-list">
+</div>
+
+<div class="button">
+    <a href="#" id="deleteSelectedButton">
+        <img src="img/trash_bt2.png" alt="Excluir Cadastros Selecionados"></a>
+</div>
+<script src="js/patient.js"></script>
 </body>
 </html>
