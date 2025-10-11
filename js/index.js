@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadSelectedPatient() {
         if (!selectedPatientId) {
             patientPhoto.src = defaultUserIcon;
-            patientName.textContent = 'Nome: Nenhum Paciente Selecionado';
-            patientAge.textContent = 'Idade: -';
-            patientDOB.textContent = 'Data de Nascimento: -';
+            patientName.textContent = 'Selecione um Paciente';
+            patientAge.textContent = '';
+            patientDOB.textContent = '';
             return;
         }
 
@@ -51,4 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     loadSelectedPatient();
+
 });
