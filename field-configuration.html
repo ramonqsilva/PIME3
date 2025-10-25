@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuração de Campos do Prontuário</title>
+    <link rel="stylesheet" href="css/field-configuration.css">
+</head>
+<body>
+<div class="header">
+    <div class="return">
+        <a href="medical-record.html"><img src="img/medicalRecord_icon2.png" alt="Voltar para Home"></a>
+    </div>
+    <div id="text">
+        <h1>Configurar Campos do Prontuário</h1>
+    </div>
+    <div class="add">
+        <a href="index.html"><img src="img/home_icon.png" alt="Voltar para Home"></a>
+    </div>
+</div>
+
+<div class="content-container">
+    <h2>Campos Atuais do Prontuário</h2>
+    <p>Defina aqui os campos padrão que aparecerão nos registros diurnos e noturnos para todos os pacientes.</p>
+
+    <div id="current-fields-list">
+    </div>
+
+    <button type="button" id="openAddFieldModalButton" class="action-button add-field">Adicionar Novo Campo</button>
+</div>
+
+<div id="add-field-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal-button">&times;</span>
+        <h2 id="modalTitle">Adicionar Novo Campo</h2>
+        <form id="fieldForm">
+            <input type="hidden" id="editingFieldId"> <div class="info-box">
+            <label for="fieldName">Nome do Campo:</label>
+            <input type="text" id="fieldName" required>
+        </div>
+            <div class="info-box">
+                <label for="fieldType">Tipo do Campo:</label>
+                <select id="fieldType">
+                    <option value="text">Texto (Linha Única)</option>
+                    <option value="textarea">Texto Longo (Observações)</option>
+                    <option value="radio">Múltipla Escolha (Selecionar Um)</option>
+                    <option value="checkbox">Múltipla Seleção (Selecionar Vários)</option>
+                </select>
+            </div>
+            <div class="info-box" id="fieldOptionsContainer" style="display: none;">
+                <label for="fieldOptions">Opções (separadas por vírgula):</label>
+                <input type="text" id="fieldOptions" placeholder="Ex: Opção 1, Opção 2">
+            </div>
+            <button type="submit" class="action-button save">Confirmar</button>
+        </form>
+    </div>
+</div>
+
+<script src="js/field-configuration.js"></script>
+</body>
+</html>

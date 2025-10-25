@@ -2,29 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Paciente</title>
-
+    <title>Pacientes</title>
     <link rel="stylesheet" href="css/patient.css">
 </head>
 <body>
 <div class="header">
     <div class="return">
-        <a href="index.html">
-            <img src="img/home_icon.png" alt="Voltar para Página Inicial"></a>
+        <a href="patient-registration.html">
+            <img src="img/add_icon2.png" alt="Adicionar paciente"></a>
     </div>
     <div id="text">
         <h1>Pacientes</h1>
     </div>
     <div class="add">
-        <a href="patient-registration.html">
-            <img src="img/add_icon2.png" alt="Adicionar paciente"></a>
+        <a href="index.html">
+            <img src="img/home_icon.png" alt="Voltar para Página Inicial"></a>
     </div>
 </div>
 
 <div class="search-bar-container">
     <div class="search-bar">
-        <input type="text" placeholder="Buscar pacientes...">
-        <button>🔍</button>
+        <input type="text" placeholder="Buscar pacientes..." id="search-input">
+        <button id="search-button">🔍</button>
     </div>
 </div>
 
@@ -32,9 +31,120 @@
 </div>
 
 <div class="button">
-    <a href="#" id="deleteSelectedButton">
+    <a href="#" id="deleteSelectedButton" class="hidden">
         <img src="img/trash_bt2.png" alt="Excluir Cadastros Selecionados"></a>
 </div>
+
+<div id="edit-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Editar Paciente</h2>
+        <form id="editForm">
+            <input type="hidden" id="edit-patient-id">
+
+            <div class="profile-edit">
+                <label for="edit-patientPhoto" class="custom-photo-upload-edit">
+                    <img id="edit-profile-picture" src="img/user_icon2.png" alt="Alterar foto de perfil"/>
+                    <div class="photo-text-container-edit">
+                        <span>Alterar<br>Foto</span>
+                    </div>
+                </label>
+                <input type="file" id="edit-patientPhoto" name="editPatientPhoto" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="info-box">
+                <label for="edit-name">Nome Completo</label>
+                <input type="text" id="edit-name" name="name" required>
+            </div>
+
+            <div class="pair-container">
+                <div class="info-box">
+                    <label for="edit-gender">Sexo</label>
+                    <select id="edit-gender" name="gender" required>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
+                <div class="info-box">
+                    <label for="edit-dob">Data de Nascimento</label>
+                    <input type="date" id="edit-dob" name="dob" required>
+                </div>
+            </div>
+
+            <div class="pair-container">
+                <div class="info-box">
+                    <label for="edit-rg">RG</label>
+                    <input type="text" id="edit-rg" name="rg" required>
+                </div>
+                <div class="info-box">
+                    <label for="edit-cpf">CPF</label>
+                    <input type="text" id="edit-cpf" name="cpf" required>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <label for="edit-responsible">Nome do Responsável</label>
+                <input type="text" id="edit-responsible" name="responsible" required>
+            </div>
+
+            <div class="pair-container">
+                <div class="info-box">
+                    <label for="edit-phone1">Telefone Principal</label>
+                    <input type="tel" id="edit-phone1" name="phone1">
+                </div>
+                <div class="info-box">
+                    <label for="edit-phone2">Telefone Secundário</label>
+                    <input type="tel" id="edit-phone2" name="phone2">
+                </div>
+            </div>
+
+            <div class="info-box">
+                <label for="edit-email">Email</label>
+                <input type="email" id="edit-email" name="email">
+            </div>
+
+            <hr>
+            <h3>Endereço</h3>
+
+            <div class="info-box">
+                <label for="edit-address">Rua/Avenida</label>
+                <input type="text" id="edit-address" name="address" required>
+            </div>
+            <div class="pair-container">
+                <div class="info-box">
+                    <label for="edit-address-number">Número</label>
+                    <input type="text" id="edit-address-number" name="address-number">
+                </div>
+                <div class="info-box">
+                    <label for="edit-neighborhood">Bairro</label>
+                    <input type="text" id="edit-neighborhood" name="neighborhood" required>
+                </div>
+            </div>
+
+            <div class="pair-container">
+                <div class="info-box">
+                    <label for="edit-city">Cidade</label>
+                    <input type="text" id="edit-city" name="city" required>
+                </div>
+                <div class="info-box">
+                    <label for="edit-state">Estado (UF)</label>
+                    <input type="text" id="edit-state" name="state" required>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <label for="edit-zipcode">CEP</label>
+                <input type="text" id="edit-zipcode" name="zipCode" required>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" id="cancelEditButton" class="action-button cancel">Cancelar</button>
+                <button type="submit" class="action-button save">Salvar Alterações</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <script src="js/patient.js"></script>
 </body>
 </html>

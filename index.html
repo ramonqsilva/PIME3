@@ -6,60 +6,178 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="header">
-    <div id="header-img">
-      <img src="img/logo.png" alt="Logo da Instituição">
-    </div>
-    <div class="header-text">
-      <h1>Olá, Administrador!</h1>
-      <p>Seja bem-vindo(a)!</p>
-    </div>
-    <div class="add">
-      <a href="#">
-        <img src="img/menu_icon.png" alt="Menu Dinâmico"></a>
-    </div>
-
+<div class="header">
+  <div id="header-img">
+    <img src="img/logo.png" alt="Logo da Instituição">
   </div>
+  <div class="header-text">
+    <h1>Olá, Administrador!</h1>
+    <p>Seja bem-vindo(a)!</p>
+  </div>
+  <div class="add">
+    <a href="#">
+      <img src="img/menu_icon.png" alt="Menu Dinâmico"></a>
+  </div>
+</div>
 
-  <div class="content">
-    <a href="#" id="paciente_data" class="content-link">
-      <div class="patient-photoInfo">
-        <img src="img/user_icon.png" alt="Foto do Paciente" id="patientPhoto">
-        <div class="patient-detals">
-          <p id="patientName">Nome:</p>
-          <p id="patientAge">Idade:</p>
-          <p id="patientDOB">Data de Nascimento:</p>
+<div class="content">
+  <a href="#" id="paciente_data" class="content-link">
+    <div class="patient-photoInfo">
+      <img src="img/user_icon.png" alt="Foto do Paciente" id="patientPhoto">
+      <div class="patient-detals">
+        <p id="patientName">Nome:</p>
+        <p id="patientAge">Idade:</p>
+        <p id="patientDOB">Data de Nascimento:</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="icons">
+  <a href="patient-registration.html">
+    <div class="icon">
+      <img src="img/add-pacient_icon3.png" alt="Icone de menu">
+      <p>Cadastrar</p>
+    </div>
+  </a>
+  <a href="patient.html">
+    <div class="icon">
+      <img src="img/patients_icon2.png" alt="Icone de menu">
+      <p>Pacientes</p>
+    </div>
+  </a>
+  <a href="medical-record.html">
+    <div class="icon">
+      <img src="img/medicalRecord_icon2.png" alt="Icone de menu">
+      <p>Prontuário</p>
+    </div>
+  </a>
+  <a href="field-configuration.html">
+    <div class="icon" id="modelo-icon">
+      <img src="img/settings_icon.png" alt="Configurar Campos">
+      <p>Configurar</p>
+    </div>
+  </a>
+  <!--
+  <a href="#">
+    <div class="icon" id="modelo-icon" >
+      <img src="img/implement_icon.png" width="10" alt="Icone de menu">
+      <p class="color-off">Implementar</p>
+    </div>
+  </a>
+  -->
+</div>
+
+<div id="edit-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Editar Paciente</h2>
+    <form id="editForm">
+      <input type="hidden" id="edit-patient-id">
+
+      <div class="profile-edit">
+        <label for="edit-patientPhoto" class="custom-photo-upload-edit">
+          <img id="edit-profile-picture" src="img/user_icon2.png" alt="Alterar foto de perfil"/>
+          <div class="photo-text-container-edit">
+            <span>Alterar<br>Foto</span>
+          </div>
+        </label>
+        <input type="file" id="edit-patientPhoto" name="editPatientPhoto" accept="image/*" style="display: none;">
+      </div>
+
+      <div class="info-box">
+        <label for="edit-name">Nome Completo</label>
+        <input type="text" id="edit-name" name="name" required>
+      </div>
+
+      <div class="pair-container">
+        <div class="info-box">
+          <label for="edit-gender">Sexo</label>
+          <select id="edit-gender" name="gender" required>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+          </select>
+        </div>
+        <div class="info-box">
+          <label for="edit-dob">Data de Nascimento</label>
+          <input type="date" id="edit-dob" name="dob" required>
         </div>
       </div>
-    </a>
-  </div>
 
-  <div class="icons">
-    <a href="patient-registration.html">
-      <div class="icon">
-        <img src="img/add-pacient_icon2.png" alt="Icone de menu">
-        <p>Cadastrar</p>
+      <div class="pair-container">
+        <div class="info-box">
+          <label for="edit-rg">RG</label>
+          <input type="text" id="edit-rg" name="rg" required>
+        </div>
+        <div class="info-box">
+          <label for="edit-cpf">CPF</label>
+          <input type="text" id="edit-cpf" name="cpf" required>
+        </div>
       </div>
-    </a>
-    <a href="patient.html">
-      <div class="icon">
-        <img src="img/patients_icon2.png" alt="Icone de menu">
-        <p>Pacientes</p>
+
+      <div class="info-box">
+        <label for="edit-responsible">Nome do Responsável</label>
+        <input type="text" id="edit-responsible" name="responsible" required>
       </div>
-    </a>
-    <a href="medical-record.html">
-      <div class="icon">
-        <img src="img/medicalRecord_icon2.png" alt="Icone de menu">
-        <p>Prontuário</p>
+
+      <div class="pair-container">
+        <div class="info-box">
+          <label for="edit-phone1">Telefone Principal</label>
+          <input type="tel" id="edit-phone1" name="phone1">
+        </div>
+        <div class="info-box">
+          <label for="edit-phone2">Telefone Secundário</label>
+          <input type="tel" id="edit-phone2" name="phone2">
+        </div>
       </div>
-    </a>
-    <a href="#">
-      <div class="icon" id="modelo-icon off" >
-        <img src="img/implement_icon.png" width="10" alt="Icone de menu">
-        <p class="color-off">Implementar</p>
+
+      <div class="info-box">
+        <label for="edit-email">Email</label>
+        <input type="email" id="edit-email" name="email">
       </div>
-    </a>
+
+      <hr>
+      <h3>Endereço</h3>
+
+      <div class="info-box">
+        <label for="edit-address">Rua/Avenida</label>
+        <input type="text" id="edit-address" name="address" required>
+      </div>
+      <div class="pair-container">
+        <div class="info-box">
+          <label for="edit-address-number">Número</label>
+          <input type="text" id="edit-address-number" name="address-number">
+        </div>
+        <div class="info-box">
+          <label for="edit-neighborhood">Bairro</label>
+          <input type="text" id="edit-neighborhood" name="neighborhood" required>
+        </div>
+      </div>
+
+      <div class="pair-container">
+        <div class="info-box">
+          <label for="edit-city">Cidade</label>
+          <input type="text" id="edit-city" name="city" required>
+        </div>
+        <div class="info-box">
+          <label for="edit-state">Estado (UF)</label>
+          <input type="text" id="edit-state" name="state" required>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <label for="edit-zipcode">CEP</label>
+        <input type="text" id="edit-zipcode" name="zipCode" required>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelEditButton" class="action-button cancel">Cancelar</button>
+        <button type="submit" class="action-button save">Salvar Alterações</button>
+      </div>
+    </form>
   </div>
-  <script src="js/index.js"></script>
+</div>
+
+<script src="js/index.js"></script>
 </body>
 </html>

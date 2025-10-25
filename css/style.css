@@ -1,17 +1,17 @@
 /* Definições e Estética Base */
 body {
-    background-color: #e4e0da; /* Fundo Bege Claro */
+    background-color: #e4e0da;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
-/* 1. Header (Barra Superior) - Consistente com outras páginas */
+/* 1. Header */
 .header {
-    background-color: #4682B4; /* Azul Aço */
+    background-color: #4682B4;
     color: white;
-    height: 70px; /* Altura moderna */
+    height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -27,18 +27,18 @@ h1 {
 }
 
 p {
-    margin: 5px 0; /* Ajusta a margem do parágrafo de boas-vindas */
+    margin: 5px 0;
 }
 
 .header-text {
     font-size: 1rem;
     align-content: center;
-    text-align: left; /* Alinha o texto à esquerda (mais natural) */
+    text-align: center;
 }
 
 #header-img {
     width: 50px;
-    margin: 0 10px;
+    margin: 0 0px;
     display: flex;
     align-items: center;
 }
@@ -60,7 +60,7 @@ p {
     width: 100%;
 }
 
-/* 2. Área de Conteúdo Principal (Exibição do Paciente) */
+/* 2. Área de Conteúdo Principal */
 .content {
     padding: 20px 0;
     text-align: center;
@@ -69,7 +69,6 @@ p {
 .content-link {
     display: block;
     text-decoration: none;
-    /* Estilos do Bloco */
     width: 90%;
     max-width: 500px;
     margin: 20px auto;
@@ -77,12 +76,12 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     padding: 20px;
-
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .content-link:hover {
-    transform: translateY(-5px); /* Efeito suave de levantar */
+    transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -94,12 +93,12 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px; /* Espaço entre a foto e os detalhes */
-    color: #333; /* Cor do texto dos detalhes */
+    gap: 40px;
+    color: #333;
 }
 
 .patient-photoInfo img {
-    width: 120px; /* Tamanho da foto de destaque */
+    width: 120px;
     height: 120px;
     border-radius: 50%;
     border: 3px solid #4682B4;
@@ -136,16 +135,13 @@ p {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     transition: background-color 0.3s;
 }
-#modelo-icon\ off img{
-    opacity: 20%;
-}
 
 .icon:hover {
-    background-color: #3a6b99; /* Azul mais escuro no hover */
+    background-color: #3a6b99;
 }
 
 .icon img {
-    width: 40px; /* Ícones menores para melhor proporção */
+    width: 40px;
     margin-bottom: 5px;
 }
 
@@ -164,5 +160,150 @@ a:visited {
 }
 
 .color-off{
-    color: #918d87; /* Cor de inativo */
+    color: #918d87;
+}
+
+/* --- ESTILOS DO MODAL DE EDIÇÃO --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: black;
+}
+
+.modal-content h3 {
+    color: #555;
+    margin-top: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.modal-content hr {
+    border: none;
+    border-top: 1px dashed #ccc;
+    margin: 15px 0;
+}
+
+.modal-content .info-box label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.modal-content input, .modal-content select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-content .pair-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.modal-content .pair-container .info-box {
+    flex: 1 1 50%;
+}
+
+/* Área de edição da foto no modal */
+.profile-edit {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.custom-photo-upload-edit {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #4682B4;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+}
+
+#edit-profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.photo-text-container-edit {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    z-index: 2;
+    font-size: 0.8rem;
+}
+
+/* Botões dentro do Modal */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.action-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.action-button.save {
+    background-color: #4682B4;
+    color: white;
+}
+.action-button.save:hover {
+    background-color: #3a6b99;
+}
+
+.action-button.cancel {
+    background-color: #6c757d;
+    color: white;
+}
+.action-button.cancel:hover {
+    background-color: #5a6268;
 }

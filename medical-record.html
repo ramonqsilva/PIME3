@@ -2,149 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prontuário</title>
-
+    <title>Prontuário Dinâmico</title>
     <link rel="stylesheet" href="css/medical-record.css">
-    <!--<link rel="stylesheet" href="css/reset.css">-->
 </head>
 <body>
-    <!-- (1)  -->
-    <!-- Barra Superior -->
-    <div class="header">
-        <div class="return">
-            <a href="index.html"><img src="img/arrow_icon2.png" alt="Voltar para Página Inicial"></a>
+<div class="header">
+    <div class="return">
+        <a href="#" id="selectPatientIcon"><img src="img/patients_icon2.png" alt="Selecionar Paciente"></a>
+    </div>
+    <div id="text">
+        <h1>Prontuário</h1>
+    </div>
+    <div class="add">
+        <a href="index.html"><img src="img/home_icon.png" alt="Voltar para Página Inicial"></a>
+    </div>
+</div>
+
+<div class="content-container">
+    <div class="patient-info-header">
+        <img id="patientPhoto" src="img/user_icon2.png" alt="Foto do Paciente">
+        <h2 id="patientName">Carregando paciente...</h2> </div>
+
+    <div class="date-shift-selector">
+        <div class="date-selector">
+            <label for="recordDate">Data:</label>
+            <input type="date" id="recordDate" name="recordDate">
         </div>
-        <div id="text">
-                <h1>Prontuário</h1>
-        </div>
-        <div class="add">
-            <a href="index.html"><img src="img/home_icon.png" alt="Voltar para Página Inicial"></a>
+        <div class="shift-selector">
+            <span>Turno:</span>
+            <input type="radio" id="shift-day" name="shift" value="diurno" checked>
+            <label for="shift-day">Diurno</label>
+            <input type="radio" id="shift-night" name="shift" value="noturno">
+            <label for="shift-night">Noturno</label>
         </div>
     </div>
 
-    <!-- (2)  -->
-    <div class="profile">
-        <img id="patientPhoto" src="img/user_icon2.png" alt="Profile Picture" class="profile-pic">
-        <h2 id="patientName">Selecione um Paciente</h2>
-    </div>
-    <!-- (3)  -->
-    <div class="plantao-date">
-        <div class="date">
-            <label for="data">Data:</label>
-            <input type="date" id="data" name="data">
+    <form id="medicalRecordForm">
+        <div id="diurno-form" class="shift-form">
+            <h3>Registro Diurno</h3>
+            <div id="diurno-fields-container" class="fields-container">
+                <p>Carregando campos...</p> </div>
         </div>
-        <!-- (3-1)  -->
-        <div class="plantao">
-            Plantão:
-            <input type="radio" name="turno" value="diurno" id="diurno" checked> <label for="diurno">Diurno</label>
-            <input type="radio" name="turno" value="noturno" id="noturno"> <label for="noturno">Noturno</label>
+        <div id="noturno-form" class="shift-form hidden">
+            <h3>Registro Noturno</h3>
+            <div id="noturno-fields-container" class="fields-container">
+                <p>Carregando campos...</p> </div>
         </div>
-    </div>
-    <!-- (4)  -->
+        <button type="button" id="addFieldButton" class="action-button add-field">Adicionar Campo</button>
+        <div class="actions">
+            <button type="button" id="saveRecordButton" class="action-button save">Salvar Registro</button>
+            <button type="button" id="exportPdfButton" class="action-button export">Exportar PDF</button>
+        </div>
+    </form>
+</div>
 
-    <div class="info" id="diurnoFields">
-        <h3>Diurno</h3>
-        <!-- (4-1)  -->
-        <div class="info-box">
-            Alimentação<br>
-            <input type="radio" name="alimentacao_diurno" value="total"> <label for="total">Total</label>
-            <input type="radio" name="alimentacao_diurno" value="parcial"> <label for="parcial">Parcial</label>
-            <input type="radio" name="alimentacao_diurno" value="rejeicao"> <label for="rejeicao">Rejeição</label>
+<div id="patientSelectionModal" class="modal">
+    <div class="modal-content">
+        <span class="close-patient-selection-modal">&times;</span>
+        <h2>Selecione o Paciente</h2>
+        <div id="modal-patient-list" class="modal-patient-list">
         </div>
-        <!-- (4-2)  -->
-        <div class="info-box">
-            Eliminações<br>
-            <input type="radio" name="eliminacoes_diurno" value="diurese"> <label for="diurese">Diurese</label>
-            <input type="radio" name="eliminacoes_diurno" value="evacuacao"> <label for="evacuacao">Evacuação</label>
-            <input type="radio" name="eliminacoes_diurno" value="diarreia"> <label for="diarreia">Diarreia</label>
-            <input type="radio" name="eliminacoes_diurno" value="ausencia"> <label for="ausencia">Ausência</label>
-        </div>
-        <!-- (4-3)  -->
-        <div class="info-box">
-            Banho<br>
-            <input type="radio" name="banho_diurno" value="leito"> <label for="leito">Leito</label>
-            <input type="radio" name="banho_diurno" value="aspersao"> <label for="aspersao">Aspersão</label>
-            <input type="radio" name="banho_diurno" value="imersao"> <label for="imersao">Imersão</label>
-        </div>
-        <!-- (4-4)  -->
-        <div class="info-box">
-            Medicação CPM<br>
-            <input type="radio" name="medicacao_diurno" value="aceitacao"> <label for="aceitacao">Aceitação</label>
-            <input type="radio" name="medicacao_diurno" value="rejeicao"> <label for="rejeicao">Rejeição</label>
-        </div>
-        <!-- (4-5)  -->
-        <div class="info-box">
-            Troca<br>
-            <input type="text" name="troca_diurno" id="troca_diurno">
-        </div>
-        <!-- (4-6)  -->
-        <div class="info-box">
-            Intercorrências<br>
-            <textarea name="intercorrencias_diurno" id="intercorrencias_diurno" rows="4" cols="50"></textarea>
-        </div>
-        <!-- (4-7)  -->
-        <div class="info-box">
-            Responsável<br>
-            <input type="text" name="responsavel_diurno" id="responsavel_diurno">
-        </div>
+    </div>
+</div>
 
-        <!-- Adicionar mais campos para as outras ações -->
-    </div>
-    <!-- (5)  -->
-    <div class="info" id="noturnoFields" style="display:none;">
-        <h3>Noturno</h3>
-        <!-- (5-1)  -->
-        <div class="info-box">
-            Alimentação<br>
-            <input type="radio" name="alimentacao_noturno" value="total"> <label for="total">Total</label>
-            <input type="radio" name="alimentacao_noturno" value="parcial"> <label for="parcial">Parcial</label>
-            <input type="radio" name="alimentacao_noturno" value="rejeicao"> <label for="rejeicao">Rejeição</label>
-        </div>
-        <!-- (5-2)  -->
-        <div class="info-box">
-            Eliminações<br>
-            <input type="radio" name="eliminacoes_noturno" value="diurese"> <label for="diurese">Diurese</label>
-            <input type="radio" name="eliminacoes_noturno" value="evacuacao"> <label for="evacuacao">Evacuação</label>
-            <input type="radio" name="eliminacoes_noturno" value="diarreia"> <label for="diarreia">Diarreia</label>
-            <input type="radio" name="eliminacoes_noturno" value="ausencia"> <label for="ausencia">Ausência</label>
-        </div>
-        <!-- (5-3)  -->
-        <div class="info-box">
-            Banho<br>
-            <input type="radio" name="banho_noturno" value="leito"> <label for="leito">Leito</label>
-            <input type="radio" name="banho_noturno" value="aspersao"> <label for="aspersao">Aspersão</label>
-            <input type="radio" name="banho_noturno" value="imersao"> <label for="imersao">Imersão</label>
-        </div>
-        <!-- (5-4)  -->
-        <div class="info-box">
-            Medicação CPM<br>
-            <input type="radio" name="medicacao_noturno" value="aceitacao"> <label for="aceitacao">Aceitação</label>
-            <input type="radio" name="medicacao_noturno" value="rejeicao"> <label for="rejeicao">Rejeição</label>
-        </div>
-        <!-- (5-5)  -->
-        <div class="info-box">
-            Troca<br>
-            <input type="text" name="troca_noturno" id="troca_noturno">
-        </div>
-        <!-- (5-6)  -->
-        <div class="info-box">
-            Intercorrências<br>
-            <textarea name="intercorrencias_noturno" id="intercorrencias_noturno" rows="4" cols="50"></textarea>
-        </div>
-        <!-- (5-7)  -->
-        <div class="info-box">
-            Responsável<br>
-            <input type="text" name="responsavel_noturno" id="responsavel_noturno">
-        </div>
-    </div>
+<div id="add-field-modal" class="modal">
+</div>
 
-    <!-- Adicionar mais campos para as outras ações -->
-    <!-- (6)  -->
-    <div class="actions">
-        <img id="saveButton" src="img/confirm_bt2.png" alt="Salvar" class="action-button save" style="cursor: pointer;">
-    </div>
-    <img src="img/pdf_icon.png" class="action-button" style="cursor: pointer;">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="js/medical-record.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </body>
 </html>

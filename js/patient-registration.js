@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     patientForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // 1. Coleta de Dados SIMPLES (Name, Sexo, DOB, CPF, RG, Responsável)
+        // 1. Coleta de Dados SIMPLES
         const name = document.getElementById('patientName').value;
         const gender = document.getElementById('patientGender').value;
         const dob = document.getElementById('patientDOB').value;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const responsible = document.getElementById('patientResponsible').value;
         const email = document.getElementById('patientEmail').value;
 
-        // 2. Coleta de Dados Agrupados (Telefones)
+        // 2. Coleta de Dados de Contato
         const phone1 = document.getElementById('patientPhone1').value;
         const phone2 = document.getElementById('patientPhone2').value;
 
@@ -51,21 +51,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const patient = {
                 id: Date.now().toString(),
 
-                // Dados Básicos e Pessoais
+                // Dados Pessoais
                 name: name,
-                gender: gender, // NOVO CAMPO
+                gender: gender,
                 dob: dob,
                 cpf: cpf,
                 rg: rg,
                 responsible: responsible,
 
                 // Contato
-                email: email, // NOVO CAMPO
-                phone1: phone1, // NOVO CAMPO
-                phone2: phone2, // NOVO CAMPO
+                email: email,
+                phone1: phone1,
+                phone2: phone2,
 
                 // Endereço (Objeto)
-                address: patientAddress, // NOVO CAMPO
+                address: patientAddress,
 
                 // Foto
                 photo: photo

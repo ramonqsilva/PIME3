@@ -4,10 +4,9 @@ body {
     background-color: #e4e0da;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-
 }
 
-/* 1. Header (Barra Superior) */
+/* 1. Header */
 .header {
     background-color: #4682B4; /* Azul Aço */
     color: white;
@@ -38,7 +37,6 @@ h1 {
 
 .return img, .add img {
     width: 100%;
-    /*filter: invert(100%); /* Ícones brancos */
 }
 
 #text {
@@ -76,14 +74,12 @@ h1 {
 }
 
 /* 2-1. Foto de Perfil (Coluna) - CORREÇÃO DE TAMANHO E POSIÇÃO */
-/* 2-1. Foto de Perfil (Coluna) - CORREÇÃO DE TAMANHO E POSIÇÃO */
 .profile {
-    width: 250px; /* Mantido o tamanho da coluna (máximo de largura) */
+    width: 250px;
     flex-shrink: 0;
     padding: 0;
-    margin: 0; /* Margens zeradas para controle total */
-    align-self: flex-start; /* Garante que fique no topo do Flexbox */
-    /* NOVA REGRA: Define a altura automática para não quebrar o layout */
+    margin: 0;
+    align-self: flex-start;
     height: auto;
 }
 
@@ -92,13 +88,9 @@ h1 {
 }
 
 .custom-photo-upload {
-    /* O contêiner usa a largura máxima da coluna */
     width: 250px;
-    /* Altura definida igual à largura para manter a proporção (aspect-ratio de 1:1) */
     aspect-ratio: 1 / 1;
-
-    /* Removido o border-radius: 50% — a foto será um quadrado grande */
-    border-radius: 50%; /* Novo arredondamento suave */
+    border-radius: 50%;
     border: 3px solid #4682B4;
     box-shadow: 0 0 0 3px white, 0 0 0 5px #4682B4;
     position: relative;
@@ -112,14 +104,13 @@ h1 {
 .custom-photo-upload img {
     width: 100%;
     height: 100%;
-    /* ESSENCIAL: Garante que a imagem preencha a área sem distorcer */
     object-fit: cover;
     z-index: 1;
 }
 
 .photo-text-container {
     background-color: rgba(0, 0, 0, 0.65);
-    padding: 5px 0; /* Padding ajustado */
+    padding: 5px 0;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -127,24 +118,21 @@ h1 {
     color: white;
     text-align: center;
     z-index: 2;
-    font-size: 1rem; /* Fonte um pouco maior para melhor leitura */
+    font-size: 1rem;
 }
 /* -----2-1----- */
 
 /* 2-2. Coluna de Informações TOP e Continuação (Grid Layout) */
 .info-top {
     flex-grow: 1;
-    /* Ajuste o padding para compensar a margem da foto se necessário */
     padding-top: 10px;
 }
-/* ... (o restante das regras .info-continuation e .info-box permanecem as mesmas) ... */
 
 .info-continuation {
     padding: 0 40px;
     display: grid;
-    /* Cria layout responsivo de duas colunas */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px 30px; /* Espaço entre os itens */
+    gap: 15px 30px;
 }
 
 .info-box {
@@ -153,7 +141,7 @@ h1 {
 }
 
 .info-box label {
-    font-weight: 600; /* Negrito aprimorado */
+    font-weight: 600;
     display: block;
     margin-bottom: 5px;
     font-size: 0.95rem;
@@ -178,7 +166,6 @@ h1 {
 }
 
 .info-box select {
-    /* Estilo do dropdown personalizado */
     appearance: none;
     background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="gray" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
     background-size: 16px;
@@ -186,18 +173,17 @@ h1 {
 }
 /* -----2-2----- */
 
-/* Adicione esta nova regra ao seu CSS */
+/* NOVO: Estilo para Pares de Campos (RG/CPF e Telefones) */
 .pair-container {
     display: flex;
-    gap: 20px; /* Espaço entre os campos RG e CPF, e entre os telefones */
-    width: 100%; /* Garante que o contêiner de pares ocupe a largura total */
-    margin-bottom: 20px; /* Espaço abaixo do par */
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .pair-container .info-box {
-    /* Força cada campo dentro do par a ocupar metade do espaço disponível */
     flex: 1 1 50%;
-    margin-bottom: 0; /* Remove a margem extra, pois o .pair-container já tem uma */
+    margin-bottom: 0;
 }
 
 
@@ -226,7 +212,7 @@ h1 {
 }
 
 .action-button.clear {
-    background-color: #dc3545; /* Vermelho forte */
+    background-color: #dc3545;
     color: white;
 }
 
