@@ -1,6 +1,4 @@
-## Projeto Integrador Multidicipinar Estensionista 3
+## Projeto Integrador Multidicipinar Extensionista 3 (BelasArtes)
 
-##  Stack
 
-##
 
