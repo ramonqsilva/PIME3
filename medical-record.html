@@ -21,7 +21,8 @@
 <div class="content-container">
     <div class="patient-info-header">
         <img id="patientPhoto" src="img/user_icon2.png" alt="Foto do Paciente">
-        <h2 id="patientName">Carregando paciente...</h2> </div>
+        <h2 id="patientName">Carregando paciente...</h2>
+    </div>
 
     <div class="date-shift-selector">
         <div class="date-selector">
@@ -37,20 +38,24 @@
         </div>
     </div>
 
-    <form id="medicalRecordForm">
+    <form id="medicalRecordForm" class="hidden">
         <div id="diurno-form" class="shift-form">
             <h3>Registro Diurno</h3>
             <div id="diurno-fields-container" class="fields-container">
-                <p>Carregando campos...</p> </div>
+                <p>Carregando campos...</p>
+            </div>
         </div>
         <div id="noturno-form" class="shift-form hidden">
             <h3>Registro Noturno</h3>
             <div id="noturno-fields-container" class="fields-container">
-                <p>Carregando campos...</p> </div>
+                <p>Carregando campos...</p>
+            </div>
         </div>
-        <button type="button" id="addFieldButton" class="action-button add-field">Adicionar Campo</button>
+
+        <button type="button" id="addFieldButton" class="action-button add-field">Adicionar Campo (Especial)</button>
+
         <div class="actions">
-            <button type="button" id="saveRecordButton" class="action-button save">Salvar Registro</button>
+            <button type="button" id="saveRecordButton" class="action-button save">Salvar Ambos os Turnos</button>
             <button type="button" id="exportPdfButton" class="action-button export">Exportar PDF</button>
         </div>
     </form>
@@ -66,6 +71,31 @@
 </div>
 
 <div id="add-field-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-add-field-modal">&times;</span>
+        <h2>Adicionar Campo Específico do Paciente</h2>
+        <form id="addFieldForm">
+            <p>Este campo será salvo apenas para este paciente.</p>
+            <div class="info-box">
+                <label for="fieldName">Nome do Campo:</label>
+                <input type="text" id="fieldName" required>
+            </div>
+            <div class="info-box">
+                <label for="fieldType">Tipo do Campo:</label>
+                <select id="fieldType">
+                    <option value="text">Texto (Linha Única)</option>
+                    <option value="textarea">Texto Longo (Observações)</option>
+                    <option value="radio">Múltipla Escolha (Selecionar Um)</option>
+                    <option value="checkbox">Múltipla Seleção (Selecionar Vários)</option>
+                </select>
+            </div>
+            <div class="info-box" id="fieldOptionsContainer" style="display: none;">
+                <label for="fieldOptions">Opções (separadas por vírgula):</label>
+                <input type="text" id="fieldOptions" placeholder="Ex: Opção 1, Opção 2, Opção 3">
+            </div>
+            <button type="submit" class="action-button save">Confirmar Novo Campo</button>
+        </form>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
